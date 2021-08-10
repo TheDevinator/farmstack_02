@@ -4,17 +4,18 @@ from dotenv import dotenv_values
 import os
 import pymongo
 
-config = dotenv_values(".env")
-DATABASE_URI = config.get("DATABASE_URI")
-print("os.environ TRY",os.environ("DATABASE_URI"))
-print("DATABASE_URI 1", DATABASE_URI)
-print("os.getenv('DATABASE_URI')", os.getenv("DATABASE_URI"))
-
-# if os.getenv("DATABASE_URI"): DATABASE_URI = os.getenv("DATABASE_URI") #ensures that if we have a system environment variable, it uses that instead
+env = os.environ.get("PYTHON_ENV")
+if(env =="production"):
+   DATABASE_URI = os.environ.get("PYTHON_ENV")
+   print("DATABASE_URI PROD", DATABASE_URI)
+else :
+    config = dotenv_values(".env")
+    DATABASE_URI = config.get("DATABASE_URI")
+    print("DATABASE_URI DEV", DATABASE_URI)
 
 client = motor.motor_asyncio.AsyncIOMotorClient(DATABASE_URI)
-print("client 1", client)
-print("DATABASE_URI 2", DATABASE_URI)
+print("client Final", client)
+print("DATABASE_URI Final", DATABASE_URI)
 
 
 # client = pymongo.MongoClient("mongodb+srv://rekyou:n%40%40h95xg4pR%2APiQMONGODB@rekyou01db-hbv8l.mongodb.net/farmstack01?retryWrites=true&w=majority")
