@@ -9,7 +9,7 @@ print("os.environ", os.environ)
 env = os.environ.get("PYTHON_ENV")
 print("Process env", env)
 if(env =="production"):
-   DATABASE_URI = os.environ.get("PYTHON_ENV")
+   DATABASE_URI = os.environ.get("DATABASE_URI")
    print("DATABASE_URI PROD", DATABASE_URI)
 else :
     config = dotenv_values(".env")
