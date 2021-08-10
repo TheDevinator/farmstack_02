@@ -6,6 +6,7 @@ import pymongo
 
 config = dotenv_values(".env")
 DATABASE_URI = config.get("DATABASE_URI")
+print("os.environ",os.environ)
 print("DATABASE_URI 1", DATABASE_URI)
 print("os.getenv('DATABASE_URI')", os.getenv("DATABASE_URI"))
 

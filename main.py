@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from model import Todo
 from fastapi import FastAPI, HTTPException
 
-
 origins = ["https://thedevinator.github.io/"] # This will eventually be changed to only the origins you will use once it's deployed, to secure the app a bit more.
 
 app = FastAPI()
