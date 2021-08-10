@@ -4,7 +4,10 @@ from dotenv import dotenv_values
 import os
 import pymongo
 
+
+print("os.environ", os.environ)
 env = os.environ.get("PYTHON_ENV")
+print("Process env", env)
 if(env =="production"):
    DATABASE_URI = os.environ.get("PYTHON_ENV")
    print("DATABASE_URI PROD", DATABASE_URI)
